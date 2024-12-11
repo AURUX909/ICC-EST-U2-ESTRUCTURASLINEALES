@@ -7,10 +7,10 @@ import Materia.Stackss.StackGenerica;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        System.out.println("==Menu==");
+        System.out.println("\n==Menu==");
         runContactoAgente();
-        
-        System.out.println("=== Pila ===");
+
+        System.out.println("\n=== Pila ===");
         runStack();
 
         System.out.println("\n=== Cola ===");
@@ -23,7 +23,7 @@ public class App {
         runQueueGenericoExample();
     }
 
-    public static void runContactoAgente(){
+    public static void runContactoAgente() {
         MenuControlador menuControlador = new MenuControlador();
         menuControlador.showMenu();
     }
@@ -81,14 +81,21 @@ public class App {
     public static void runQueueGenericoExample() {
         QueueGenerico<Screen> screenQueue = new QueueGenerico<>();
 
+        // Agregar pantallas a la cola
         screenQueue.enqueue(new Screen(1, "Computer", "/Home"));
         screenQueue.enqueue(new Screen(2, "Files", "/Home/files"));
         screenQueue.enqueue(new Screen(3, "Documents", "/Home/files/documents"));
 
+        // Mostrar el tamaño actual de la cola
+        System.out.println("Tamaño actual de la cola: " + screenQueue.getSize());
+
         System.out.println("Pantalla actual: " + screenQueue.peek().getRoute());
 
+        // Procesar y mostrar todas las pantallas
         while (!screenQueue.isEmpty()) {
             System.out.println("Procesando pantalla: " + screenQueue.dequeue().getRoute());
+            // Mostrar el tamaño actualizado después de cada dequeue
+            System.out.println("Tamaño restante de la cola: " + screenQueue.getSize());
         }
     }
 }

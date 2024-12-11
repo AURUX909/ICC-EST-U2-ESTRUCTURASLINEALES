@@ -26,4 +26,3 @@ public class Cola {
         this.next = next;
     }
 }
-

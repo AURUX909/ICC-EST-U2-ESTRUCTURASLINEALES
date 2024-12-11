@@ -4,8 +4,8 @@ import Materia.Modelos.Cola;
 
 public class Queue {
     private Cola frente; // Inicio de la cola
-    private Cola rear;  // Final de la cola
-    private int size;   // Tamaño de la cola
+    private Cola rear; // Final de la cola
+    private int size; // Tamaño de la cola
 
     // Constructor para inicializar la cola vacía
     public Queue() {
@@ -68,4 +68,3 @@ public class Queue {
         System.out.println();
     }
 }
-

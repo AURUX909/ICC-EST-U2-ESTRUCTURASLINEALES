@@ -17,7 +17,7 @@ public class MenuControlador {
         while (!exit) {
             consolaVista.displayMenu();
             String opcion = consolaVista.getInput("Seleccione una opción: ");
-            
+
             switch (opcion) {
                 case "1":
                     añadirContacto();
