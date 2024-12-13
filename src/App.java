@@ -1,4 +1,6 @@
 import Controlador.MenuControlador;
+import Materia.Ejercicio_01_sign.SignValidator;
+import Materia.Ejercicio_02_sorting.StackSorter;
 import Materia.Quieues.Queue;
 import Materia.Quieues.QueueGenerico;
 import Materia.Screen;
@@ -7,19 +9,36 @@ import Materia.Stackss.StackGenerica;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        System.out.println("\n==Menu==");
+        System.out.println("\n╔════════════════════════════════════════╗");
+        System.out.println("║         Ejercicios de Práctica         ║");
+        System.out.println("╚════════════════════════════════════════╝");
+
+        probarValidacionSignos();
+        probarOrdenamientoPila();
+
+        System.out.println("\n╔════════════════════════════════════════╗");
+        System.out.println("║                  Menú                  ║");
+        System.out.println("╚════════════════════════════════════════╝");
         runContactoAgente();
 
-        System.out.println("\n=== Pila ===");
+        System.out.println("\n╔════════════════════════════════════════╗");
+        System.out.println("║                Pilas                   ║");
+        System.out.println("╚════════════════════════════════════════╝");
         runStack();
 
-        System.out.println("\n=== Cola ===");
+        System.out.println("\n╔════════════════════════════════════════╗");
+        System.out.println("║                Colas                   ║");
+        System.out.println("╚════════════════════════════════════════╝");
         runQueue();
 
-        System.out.println("\n=== Pila Genérica ===");
+        System.out.println("\n╔════════════════════════════════════════╗");
+        System.out.println("║         Pilas Genéricas                ║");
+        System.out.println("╚════════════════════════════════════════╝");
         runStackGenericExample();
 
-        System.out.println("\n=== Cola Genérica ===");
+        System.out.println("\n╔════════════════════════════════════════╗");
+        System.out.println("║         Colas Genéricas                ║");
+        System.out.println("╚════════════════════════════════════════╝");
         runQueueGenericoExample();
     }
 
@@ -97,5 +116,67 @@ public class App {
             // Mostrar el tamaño actualizado después de cada dequeue
             System.out.println("Tamaño restante de la cola: " + screenQueue.getSize());
         }
+    }
+
+    public static void probarValidacionSignos() {
+        SignValidator validador = new SignValidator();
+
+        String[] pruebas = {"([]){}", "({)}", "", "((()))", "([)]"};
+        String[] descripciones = {"Caso básico válido", "Caso con signos mal anidados", "Cadena vacía", "Paréntesis anidados", "Signos entrecruzados"};
+
+        System.out.println("\n╔════════════════════════════════════════╗");
+        System.out.println("║        Prueba Validación de Signos     ║");
+        System.out.println("╠════════════════════════════════════════╣");
+
+        for (int i = 0; i < pruebas.length; i++) {
+            String resultado = validador.isValidString(pruebas[i]) ? "✓ Válido" : "✗ Inválido";
+            System.out.printf("║ Test %d: %-30s ║\n", (i + 1), pruebas[i].isEmpty() ? "[Cadena vacía]" : pruebas[i]);
+            System.out.printf("║ %s: %-27s ║\n", descripciones[i], resultado);
+            if (i < pruebas.length - 1) {
+                System.out.println("╟────────────────────────────────────────╢");
+            }
+        }
+
+        System.out.println("╚════════════════════════════════════════╝");
+    }
+
+    public static void probarOrdenamientoPila() {
+        Stack pila = new Stack();
+
+        pila.push(5);
+        pila.push(1);
+        pila.push(4);
+        pila.push(2);
+        pila.push(3);
+
+        System.out.println("\n╔════════════════════════════════════════╗");
+        System.out.println("║        Prueba Ordenamiento de Pila     ║");
+        System.out.println("╠════════════════════════════════════════╣");
+        System.out.println("║             Pila Original:             ║");
+        System.out.println("╟────────────────────────────────────────╢");
+
+        Stack pilaTemp = new Stack();
+        while (!pila.isEmpty()) {
+            int elemento = pila.pop();
+            System.out.printf("║ %14s%-20d ║\n", "", elemento);
+            pilaTemp.push(elemento);
+        }
+
+        while (!pilaTemp.isEmpty()) {
+            pila.push(pilaTemp.pop());
+        }
+
+        StackSorter ordenador = new StackSorter();
+        ordenador.sortStack(pila);
+
+        System.out.println("╟────────────────────────────────────────╢");
+        System.out.println("║           Pila Ordenada:               ║");
+        System.out.println("╟────────────────────────────────────────╢");
+
+        while (!pila.isEmpty()) {
+            System.out.printf("║ %14s%-20d ║\n", "", pila.pop());
+        }
+
+        System.out.println("╚════════════════════════════════════════╝");
     }
 }
