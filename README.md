@@ -1,18 +1,40 @@
-## Getting Started
+# Práctica de Laboratorio: Estructuras Lineales (Pilas y Colas)
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+**Versión:** 2.0.2  
+**Autor:** Andres Renato Yadaicela Uyaguari  
 
-## Folder Structure
+## Descripción General
+Este proyecto implementa ejercicios prácticos relacionados con estructuras de datos lineales: pilas y colas. Los ejercicios permiten aplicar conceptos teóricos y reflejan casos de uso comunes en la programación.
 
-The workspace contains two folders by default, where:
+### Ejercicio 01: Validación de Signos
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+- **Descripción:**  
+  Implementa un validador para strings con los caracteres `()`, `{}`, `[]`. Determina si están anidados y cerrados en el orden correcto.
+  
+- **Detalles Técnicos:**  
+  Utiliza pilas para rastrear los signos de apertura y verificar correspondencias con los signos de cierre.
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+- **Ejemplo de Entrada y Salida:**
+  | Entrada        | Salida     |
+  |----------------|------------|
+  | `([]){}`       | Válido     |
+  | `({)}{}`       | Inválido   |
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+### Ejercicio 02: Ordenamiento de un Stack
 
-## Dependency Management
+- **Descripción:**  
+  Ordena una pila de números enteros, colocando el menor elemento en el tope.  
+  Se permite usar solo pilas auxiliares para realizar las operaciones de ordenamiento.  
+  
+- **Detalles Técnicos:**  
+  Mediante operaciones de `push()` y `pop()` se utiliza una pila auxiliar como soporte para el ordenamiento.
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+- **Ejemplo de Entrada y Salida:**
+  | Entrada        | Salida    |
+  |----------------|-----------|
+  | 5 → 1 → 4 → 2  | 1 → 2 → 4 → 5 |
+
+## Instrucciones de Uso
+1. Clonar el repositorio en tu máquina local:
+   ```bash
+   git clone https://github.com/AURUX909/ICC-EST-U2-ESTRUCTURASLINEALES.git
