@@ -143,11 +143,10 @@ public class App {
     public static void probarOrdenamientoPila() {
         Stack pila = new Stack();
 
-        pila.push(5);
-        pila.push(1);
-        pila.push(4);
         pila.push(2);
-        pila.push(3);
+        pila.push(4);
+        pila.push(1);
+        pila.push(5);
 
         System.out.println("\n╔════════════════════════════════════════╗");
         System.out.println("║        Prueba Ordenamiento de Pila     ║");
